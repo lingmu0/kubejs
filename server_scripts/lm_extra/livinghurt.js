@@ -32,8 +32,10 @@ let lmTetraPlayerHurtStrategies = {
     "maodie_breathe_out": function (event, player, effectValue, item, originalEffectName) {
         let {entity, source}= event
         let sourceType = source.getType()
-        if(sourceType === "bypasses_cooldown_melee") return
+        if(sourceType === "sonic_boom") return
+        let attackSpeed = Math.ceil(player.getAttributeValue('generic.attack_speed'))
         if(sourceType === "player") {
+            player.persistentData.putInt(originalEffectName, attackSpeed * 2)
             player.level.playSound(
                 null,
                 player.x,
@@ -45,7 +47,12 @@ let lmTetraPlayerHurtStrategies = {
                 1
             )
         }
-        entity.attack(player.damageSources().source(createDamagetype('jerotes',"bypasses_cooldown_melee"), player), player.getAttributeValue('generic.attack_speed'))
+        let attackSpeedCount = player.persistentData.getInt(originalEffectName) ?? 0
+        if(attackSpeedCount--) {
+            player.persistentData.putInt(originalEffectName, attackSpeedCount)
+            entity.invulnerableTime = 0
+            entity.attack(player.damageSources().source($LMDamageTypes.SONIC_BOOM, player), 1)
+        }
     },
 }
 Object.assign(tetraPlayerAttackStrategies, lmTetraPlayerHurtStrategies);

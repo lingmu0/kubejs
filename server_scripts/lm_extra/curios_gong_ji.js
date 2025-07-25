@@ -15,7 +15,8 @@ let lmCuriosTetraPlayerAttackStrategies = {
         if(sourceType !== "player") return
         let attackSpeed =  player.getAttributeValue('generic.attack_speed')
         for(let i=0; i < attackSpeed; i+=2.5) {
-            entity.attack(player.damageSources().source(createDamagetype('cataclysm',"shredder"), player), 1)
+            entity.invulnerableTime = 0
+            entity.attack(player.damageSources().source($LMDamageTypes.FALL, player), 1)
             entity.invulnerableTime = 0
             entity.attack(player.damageSources().source(createDamagetype('attributeslib',"cold_damage"), player), 1)
             entity.invulnerableTime = 0
