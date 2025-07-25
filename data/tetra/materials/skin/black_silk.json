@@ -20,7 +20,7 @@
         "default"
     ],
     "effects": {
-        "criticalStrike": [20, 1]
+        "criticalStrike": [25, 1.2]
     },
     "material": { 
         "items": [ "lm_extra:black_silk" ] 
