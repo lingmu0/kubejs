@@ -21,7 +21,10 @@ function createDamagetype(modId, damageTypeName) {
  */
 function checkDownBlock(entity, block) {
     let world = entity.level;
-    let targetBlock = world.getBlock(entity.x, entity.y - 1, entity.z);
-    
+    let blockX = Math.floor(entity.x);
+    let blockY = Math.floor(entity.y - 1); 
+    let blockZ = Math.floor(entity.z);
+    let targetBlock = world.getBlock(blockX, blockY, blockZ);
+
     return targetBlock.getId() === block;
 }

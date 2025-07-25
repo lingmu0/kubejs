@@ -54,5 +54,29 @@ let lmTetraPlayerHurtStrategies = {
             entity.attack(player.damageSources().source($LMDamageTypes.SONIC_BOOM, player), 1)
         }
     },
+    /**
+     * 
+     * @param {Internal.LivingHurtEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} itemstack 
+     * @param {*} originalEffectName 
+     */
+    "sacred_sword": function (event, player, effectValue, itemstack, originalEffectName) {
+        let {amount, source}= event
+        if(source.getType() !== "player") return
+        
+        let effects = getAllEffects(itemstack);
+        for(let effectName of effects){
+            if(effectName.key == "criticalStrike"){
+                let effectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
+                if(effectName > 100){
+                    let efficiency = itemstack.item.getEffectEfficiency(itemstack, effectName)
+                    event.setAmount(amount * (efficiency + (effectValue-100)/50))
+                }
+            }
+        };
+
+    },
 }
 Object.assign(tetraPlayerAttackStrategies, lmTetraPlayerHurtStrategies);

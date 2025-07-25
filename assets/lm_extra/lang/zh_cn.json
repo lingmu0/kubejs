@@ -53,5 +53,13 @@
     "tetra.stats.rainbow_gemstone": "彩虹之力",
     "tetra.stats.rainbow_gemstone.tooltip_short": "(唯一生效)普攻时每2.5攻速额外造成伤害分别为1的雷伤、火伤、冰伤、毒伤、法伤、摔落伤害",
     "tetra.stats.nature_heart": "自然之力 [饰品]",
-    "tetra.stats.nature_heart.tooltip_short": "(唯一生效)站在草方块上获得20%减伤,30%增伤"
+    "tetra.stats.nature_heart.tooltip_short": "(唯一生效)站在草方块上获得20%减伤,30%增伤",
+
+    "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
+    "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",
+    "tetra/schematic/sword/sacred_sword_blade.slot1": "§6神圣之剑",
+    "tetra/schematic/sword/sacred_sword_blade.description": "圣光啊！那个敌人值得一战",
+    "tetra/schematic/sword/sacred_sword_blade.name": "§6神圣之剑",
+    "tetra.variant_category.lm_extra.label": "零沐DLC"
+    
 }

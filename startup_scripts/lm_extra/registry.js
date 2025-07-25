@@ -17,4 +17,5 @@ StartupEvents.registry('item', event => {
 
 StartupEvents.registry('sound_event', event => {
     event.create("lm_extra:haqi")
+    event.create("lm_extra:manbo")
 })
