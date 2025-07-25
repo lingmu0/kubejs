@@ -57,7 +57,7 @@
     "tetra.stats.pearlescent_hand_protection": "珠光护手",
     "tetra.stats.pearlescent_hand_protection.tooltip_short": "使所有伤害都能暴击",
     "tetra.stats.sacred_sword": "神圣之剑",
-    "tetra.stats.sacred_sword.tooltip_short": "当暴击溢出时，提供额外增伤，数值为爆伤+溢出暴击率*2",
+    "tetra.stats.sacred_sword.tooltip_short": "使暴击每超过100%的部分可以多次触发",
     "tetra.stats.manbo": "曼波",
     "tetra.stats.manbo.tooltip_short": "普攻时曼波",
 

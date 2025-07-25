@@ -17,7 +17,7 @@
     },
     "effects": {
         "pearlescent_hand_protection": 1,
-        "criticalStrike": [20, 0]
+        "criticalStrike": [50, 0]
     },
     "textures": [ "default" ],
     "experienceCost": 30,
