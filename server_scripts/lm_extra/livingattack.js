@@ -24,7 +24,7 @@ NativeEvents.onEvent($LivingAttackEvent, (/** @type{Internal.LivingAttackEvent} 
     let player = event.source.player
     let entity = event.entity
     if (entity && player) {
-        player.tell(event.source.getType())
+        //player.tell(event.source.getType())
         lmtetraplayerattackevent(event)
     }
 });

@@ -5,6 +5,14 @@ StartupEvents.registry('item', event => {
     event.create("lm_extra:maodie_breathe_out","basic")
     event.create("lm_extra:rainbow_gemstone","basic")
     event.create("lm_extra:color_ingot","basic")
+    event.create("lm_extra:nature_heart","basic")
+    event.create("lm_extra:glory","basic")
+    event.create("lm_extra:gambling","basic")
+    event.create("lm_extra:manbo","basic")
+    event.create("lm_extra:wildly_arrogant","basic")
+    event.create("lm_extra:dominate","basic")
+    event.create("lm_extra:pearlescent_hand_protection","basic")
+    event.create("lm_extra:sacred_sword","basic")
 })
 
 StartupEvents.registry('sound_event', event => {
