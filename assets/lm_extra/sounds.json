@@ -1,0 +1,10 @@
+{
+    "haqi": {
+        "sounds": [
+            {
+                "name": "lm_extra:haqi",
+                "stream": true
+            }
+        ]
+    }
+}
