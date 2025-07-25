@@ -64,19 +64,65 @@ let lmTetraPlayerHurtStrategies = {
      */
     "sacred_sword": function (event, player, effectValue, itemstack, originalEffectName) {
         let {amount, source}= event
-        if(source.getType() !== "player") return
-        
+        let existHand = false
+        let critEffectValue = 0
+        let efficiency = 0
+        let effects = getAllEffects(itemstack);
+        for(let effectName of effects){
+            if(effectName.key == "pearlescent_hand_protection") {
+                existHand = true
+            }
+            else if(effectName.key == "criticalStrike") {
+                critEffectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
+                if(critEffectValue <= 100) return
+                efficiency = itemstack.item.getEffectEfficiency(itemstack, "criticalStrike")
+            }
+        };
+        if(existHand) {
+            event.setAmount(amount * (efficiency + (critEffectValue-100)/50))
+        }
+        else if(source.getType() === "player") {
+            event.setAmount(amount * (efficiency + (critEffectValue-100)/50))
+        }
+    },
+    "manbo": function (event, player, effectValue, itemstack, originalEffectName) {
+        let {entity, source}= event
+        let sourceType = source.getType()
+        if(sourceType === "player") {
+            player.level.playSound(
+                null,
+                player.x,
+                player.y,
+                player.z,
+                'lm_extra:manbo',
+                player.soundSource,
+                1,
+                1
+            )
+        }
+    },
+    /**
+     * 
+     * @param {Internal.LivingHurtEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} itemstack 
+     * @param {*} originalEffectName 
+     */
+    "pearlescent_hand_protection": function (event, player, effectValue, itemstack, originalEffectName) {
+        let {entity, source, amount}= event
+        if(source.getType() === "player") return
         let effects = getAllEffects(itemstack);
         for(let effectName of effects){
             if(effectName.key == "criticalStrike"){
-                let effectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
-                if(effectName > 100){
-                    let efficiency = itemstack.item.getEffectEfficiency(itemstack, effectName)
-                    event.setAmount(amount * (efficiency + (effectValue-100)/50))
+                let critEffectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
+                let efficiency = itemstack.item.getEffectEfficiency(itemstack, "criticalStrike")
+                if(efficiency < 1) return
+                if(player.getRandom().nextDouble() < critEffectValue/100) {
+                    event.setAmount(amount * efficiency)
                 }
             }
         };
-
     },
 }
 Object.assign(tetraPlayerAttackStrategies, lmTetraPlayerHurtStrategies);

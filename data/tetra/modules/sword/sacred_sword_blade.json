@@ -21,7 +21,7 @@
             "effects": {
                 "sweeping": 1,
                 "sacred_sword": 1,
-                "criticalStrike": [140, 2]
+                "criticalStrike": [40, 2]
             },
             "tools": {
                 "cut": [

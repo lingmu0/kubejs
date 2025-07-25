@@ -54,6 +54,12 @@
     "tetra.stats.rainbow_gemstone.tooltip_short": "(唯一生效)普攻时每2.5攻速额外造成伤害分别为1的雷伤、火伤、冰伤、毒伤、法伤、摔落伤害",
     "tetra.stats.nature_heart": "自然之力 [饰品]",
     "tetra.stats.nature_heart.tooltip_short": "(唯一生效)站在草方块上获得20%减伤,30%增伤",
+    "tetra.stats.pearlescent_hand_protection": "珠光护手",
+    "tetra.stats.pearlescent_hand_protection.tooltip_short": "使所有伤害都能暴击",
+    "tetra.stats.sacred_sword": "神圣之剑",
+    "tetra.stats.sacred_sword.tooltip_short": "当暴击溢出时，提供额外增伤，数值为爆伤+溢出暴击率*2",
+    "tetra.stats.manbo": "曼波",
+    "tetra.stats.manbo.tooltip_short": "普攻时曼波",
 
     "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
     "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",
