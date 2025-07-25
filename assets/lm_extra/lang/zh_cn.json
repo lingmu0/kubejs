@@ -5,6 +5,14 @@
     "item.lm_extra.maodie_breathe_out": "耄耋",
     "item.lm_extra.rainbow_gemstone":"彩虹宝石",
     "item.lm_extra.color_ingot": "异彩锭",
+    "item.lm_extra.nature_heart": "自然之心",
+    "item.lm_extra.glory": "荣耀",
+    "item.lm_extra.gambling": "赌徒",
+    "item.lm_extra.manbo": "曼波",
+    "item.lm_extra.wildly_arrogant": "狂妄",
+    "item.lm_extra.dominate": "主宰",
+    "item.lm_extra.pearlescent_hand_protection": "珠光护手",
+    "item.lm_extra.sacred_sword": "神圣之剑",
 
     "tetra.material.black_silk.prefix": "黑丝", 
     "tetra.material.black_silk": "黑丝",
@@ -19,11 +27,31 @@
     "tetra.material.color_ingot.prefix": "异彩锭", 
     "tetra.material.color_ingot": "异彩锭",
 
+    "tetra.material.nature_heart.prefix": "自然之心",
+    "tetra.material.glory.prefix": "荣耀",
+    "tetra.material.gambling.prefix": "赌徒",
+    "tetra.material.manbo.prefix": "曼波",
+    "tetra.material.wildly_arrogant.prefix": "狂妄",
+    "tetra.material.dominate.prefix": "主宰",
+    "tetra.material.pearlescent_hand_protection.prefix": "珠光护手",
+    "tetra.material.sacred_sword.prefix": "神圣之剑",
+
+    "tetra.material.nature_heart": "自然之心",
+    "tetra.material.glory": "荣耀",
+    "tetra.material.gambling": "赌徒",
+    "tetra.material.manbo": "曼波",
+    "tetra.material.wildly_arrogant": "狂妄",
+    "tetra.material.dominate": "主宰",
+    "tetra.material.pearlescent_hand_protection": "珠光护手",
+    "tetra.material.sacred_sword": "神圣之剑",
+
 
     "tetra.stats.rage_blade": "狂暴",
     "tetra.stats.rage_blade.tooltip_short": "每次普通攻击给予1级急迫效果，最高5级；当玩家攻速大于5时，普攻无视无敌帧",
     "tetra.stats.maodie_breathe_out": "哈气",
-    "tetra.stats.maodie_breathe_out.tooltip_short": "攻击时哈气，造成额外的附加伤害，数值等同于攻击速度",
+    "tetra.stats.maodie_breathe_out.tooltip_short": "攻击时哈气，每次伤害会造成额外1点虚空伤害，单次普攻造成额外伤害次数不高于攻速×2（向上取整）",
     "tetra.stats.rainbow_gemstone": "彩虹之力",
-    "tetra.stats.rainbow_gemstone.tooltip_short": "普攻时每2.5攻速额外造成伤害分别为1的雷伤、火伤、冰伤、毒伤、法伤、绞伤"
+    "tetra.stats.rainbow_gemstone.tooltip_short": "(唯一生效)普攻时每2.5攻速额外造成伤害分别为1的雷伤、火伤、冰伤、毒伤、法伤、摔落伤害",
+    "tetra.stats.nature_heart": "自然之力 [饰品]",
+    "tetra.stats.nature_heart.tooltip_short": "(唯一生效)站在草方块上获得20%减伤,30%增伤"
 }

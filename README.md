@@ -1,3 +1,4 @@
+git仓库:https://github.com/lingmu0/kubejs
 如下所提及普攻、平a特指近战攻击伤害，否则为任意伤害
 
 # v0.2

@@ -29,5 +29,19 @@ let lmCuriosTetraPlayerAttackStrategies = {
             entity.attack(player.damageSources().source($LMDamageTypes.LIGHTNING_BOLT, player), 1)
         }
     },
+    /**
+     * 
+     * @param {Internal.LivingHurtEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} item 
+     * @param {*} originalEffectName 
+     */
+    "nature_heart": function (event, player, effectValue, item, originalEffectName) {
+        let {amount}= event
+        if(checkDownBlock(player, "minecraft:grass_block")) {
+            event.setAmount(amount * 1.3)
+        }
+    },
 }
 Object.assign(CuriosTetraPlayerAttackStrategies, lmCuriosTetraPlayerAttackStrategies);
