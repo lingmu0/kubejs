@@ -64,6 +64,9 @@
     "tetra.stats.dominate.tooltip_short": "根据玩家最大生命值和临时生命值提供增伤，超过20的部分每一点血提供4%%增伤",
     "tetra.stats.gambling": "赌徒",
     "tetra.stats.gambling.tooltip_short": "攻击时40%%几率造成50%%伤害，60%%造成4倍伤害",
+    "tetra.stats.wildly_arrogant": "狂妄",
+    "tetra.stats.wildly_arrogant.tooltip_short": "对满血生物造成10倍伤害",
+
 
     "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
     "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",

@@ -163,6 +163,12 @@ let lmTetraPlayerHurtStrategies = {
             event.setAmount(amount * 4)
         }
     },
+    "wildly_arrogant": function (event, player, effectValue, itemstack, originalEffectName) {
+        let {entity,amount}= event
+        if(entity.getMaxHealth() == entity.getHealth()) {
+            event.setAmount(amount * 10)
+        }
+    },
     //覆盖幸运横扫
     'lucky_sweep': function (event, player, effectValue, item, originalEffectName) {
         // 检查冷却时间，避免循环触发
