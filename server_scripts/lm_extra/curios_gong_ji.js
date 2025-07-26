@@ -43,5 +43,20 @@ let lmCuriosTetraPlayerAttackStrategies = {
             event.setAmount(amount * 1.3)
         }
     },
+    /**
+     * 
+     * @param {Internal.LivingHurtEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} item 
+     * @param {*} originalEffectName 
+     */
+    "dominate": function (event, player, effectValue, item, originalEffectName) {
+        let {amount}= event
+        let Multiplier = (player.getMaxHealth() - 20 + player.getAbsorptionAmount()) * 0.04
+        if(Multiplier>0) {
+            event.setAmount(amount * (1 + Multiplier))
+        }
+    },
 }
 Object.assign(CuriosTetraPlayerAttackStrategies, lmCuriosTetraPlayerAttackStrategies);

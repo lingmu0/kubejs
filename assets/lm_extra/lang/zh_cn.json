@@ -60,13 +60,15 @@
     "tetra.stats.sacred_sword.tooltip_short": "使暴击每超过100%%的部分可以多次触发",
     "tetra.stats.manbo": "曼波",
     "tetra.stats.manbo.tooltip_short": "普攻时曼波，使强运（提升10%%幸运）等级增加一级，最高不超过当前暴击率*5",
+    "tetra.stats.dominate": "主宰",
+    "tetra.stats.dominate.tooltip_short": "根据玩家最大生命值和额外生命值提供增伤，超过20的部分每一点血提供4%%增伤",
 
     "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
     "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",
     "tetra/schematic/sword/sacred_sword_blade.slot1": "§6神圣之剑",
     "tetra/schematic/sword/sacred_sword_blade.description": "圣光啊！那个敌人值得一战",
     "tetra/schematic/sword/sacred_sword_blade.name": "§6神圣之剑",
-    "tetra.variant_category.lm_extra.label": "零沐DLC",
+    "tetra.variant_category.lm_extra.label": "剑刃改造",
 
 
     "effect.lm_extra.luck": "强运"

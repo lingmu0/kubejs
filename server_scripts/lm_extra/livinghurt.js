@@ -143,7 +143,6 @@ let lmTetraPlayerHurtStrategies = {
     "pearlescent_hand_protection": function (event, player, effectValue, itemstack, originalEffectName) {
         let {source, amount}= event
         if(source.getType() === "player") return
-        Client.tell(2)
         let effects = getAllEffects(itemstack);
         for(let effectName of effects){
             if(effectName.key == "criticalStrike"){
