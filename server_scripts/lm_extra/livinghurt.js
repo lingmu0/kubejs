@@ -155,6 +155,14 @@ let lmTetraPlayerHurtStrategies = {
             }
         };
     },
+    "gambling": function (event, player, effectValue, itemstack, originalEffectName) {
+        let {amount}= event
+        if(player.getRandom().nextDouble() < 0.4) {
+            event.setAmount(amount * 0.5)
+        }else {
+            event.setAmount(amount * 4)
+        }
+    },
     //覆盖幸运横扫
     'lucky_sweep': function (event, player, effectValue, item, originalEffectName) {
         // 检查冷却时间，避免循环触发

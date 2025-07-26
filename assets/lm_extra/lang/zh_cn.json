@@ -61,7 +61,9 @@
     "tetra.stats.manbo": "曼波",
     "tetra.stats.manbo.tooltip_short": "普攻时曼波，使强运（提升10%%幸运）等级增加一级，最高不超过当前暴击率*5",
     "tetra.stats.dominate": "主宰",
-    "tetra.stats.dominate.tooltip_short": "根据玩家最大生命值和额外生命值提供增伤，超过20的部分每一点血提供4%%增伤",
+    "tetra.stats.dominate.tooltip_short": "根据玩家最大生命值和临时生命值提供增伤，超过20的部分每一点血提供4%%增伤",
+    "tetra.stats.gambling": "赌徒",
+    "tetra.stats.gambling.tooltip_short": "攻击时40%%几率造成50%%伤害，60%%造成4倍伤害",
 
     "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
     "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",
