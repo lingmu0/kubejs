@@ -2,6 +2,7 @@
 let $LMDamageTypes = Java.loadClass('net.minecraft.world.damagesource.DamageTypes')
 let $LMResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey');
 let $LMRegistries = Java.loadClass('net.minecraft.core.registries.Registries')
+let $lMCriticalHitEvent = Java.loadClass('net.minecraftforge.event.entity.player.CriticalHitEvent')
 
 /**
  * 创建伤害类型
@@ -27,4 +28,10 @@ function checkDownBlock(entity, block) {
     let targetBlock = world.getBlock(blockX, blockY, blockZ);
 
     return targetBlock.getId() === block;
+}
+
+function lmGetEffectEfficiency(itemstack, effectname) {
+    if (itemstack.item instanceof $ModularItem) {
+        return itemstack.item.getEffectEfficiency(itemstack, $ItemEffect.get(effectname))
+    }
 }

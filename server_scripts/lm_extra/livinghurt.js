@@ -84,58 +84,18 @@ let lmTetraPlayerHurtStrategies = {
         // 仅当暴击率超过100%且满足触发条件时处理
         if(criticalStrikeLevel > 100 && (hasPearlescentHand || source.getType() === "player")) {
             // 计算满100%的部分（例如：250% → 2个完整的100%）
-            const fullHundreds = Math.floor((criticalStrikeLevel - 100) / 100);
+            let fullHundreds = Math.floor((criticalStrikeLevel - 100) / 100);
             // 计算剩余百分比（例如：250% → 50%）
-            const remainingPercent = (criticalStrikeLevel - 100) % 100;
+            let remainingPercent = (criticalStrikeLevel - 100) % 100;
             
             // 总暴击倍率 = 基础伤害 × (暴击倍率^必触发次数) × (概率触发 ? 暴击倍率 : 1)
             let finalMultiplier = Math.pow(critMultiplier, fullHundreds);
             
-            // 概率触发额外暴击
             if(Math.random() < (remainingPercent / 100)) {
                 finalMultiplier *= critMultiplier;
             }
             
-            // 应用最终伤害
             event.setAmount(amount * finalMultiplier);
-            //event.setIsCritical(true); // 标记为暴击（可选）
-        }
-        // let {amount, source}= event
-        // let existHand = false
-        // let critEffectValue = 0
-        // let efficiency = 0
-        // let effects = getAllEffects(itemstack);
-        // for(let effectName of effects){
-        //     if(effectName.key == "pearlescent_hand_protection") {
-        //         existHand = true
-        //     }
-        //     else if(effectName.key == "criticalStrike") {
-        //         critEffectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
-        //         //if(critEffectValue <= 100) return
-        //         efficiency = itemstack.item.getEffectEfficiency(itemstack, "criticalStrike")
-        //     }
-        // };
-        // if(existHand) {
-        //     event.setAmount(amount * (efficiency + (critEffectValue-100)/50))
-        // }
-        // else if(source.getType() === "player") {
-        //     event.setAmount(amount * (efficiency + (critEffectValue-100)/50))
-        // }
-    },
-    "manbo": function (event, player, effectValue, itemstack, originalEffectName) {
-        let {entity, source}= event
-        let sourceType = source.getType()
-        if(sourceType === "player") {
-            player.level.playSound(
-                null,
-                player.x,
-                player.y,
-                player.z,
-                'lm_extra:manbo',
-                player.soundSource,
-                1,
-                1
-            )
         }
     },
     /**
@@ -146,9 +106,44 @@ let lmTetraPlayerHurtStrategies = {
      * @param {*} itemstack 
      * @param {*} originalEffectName 
      */
+    "manbo": function (event, player, effectValue, itemstack, originalEffectName) {
+        let { source}= event
+        if(source.getType() !== "player") return
+        let effects = getAllEffects(itemstack);
+        for(let effectName of effects){
+            if(effectName.key == "criticalStrike"){
+                let critEffectValue = simpleGetTetraEffectLevel(itemstack, "criticalStrike");
+                if (player.hasEffect('lm_extra:luck')) {
+                    let amplifier  = player.getEffect('lm_extra:luck').getAmplifier()
+                    player.potionEffects.add('lm_extra:luck', 20 * 5, Math.min(critEffectValue/20 - 1, amplifier + 1));
+                } else {
+                    player.potionEffects.add('lm_extra:luck', 20 * 5, 0);
+                }
+            }
+        };
+        player.level.playSound(
+            null,
+            player.x,
+            player.y,
+            player.z,
+            'lm_extra:manbo',
+            player.soundSource,
+            1,
+            1
+        )
+    },
+    /**
+     * 
+     * @param {Internal.LivingHurtEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} itemstack 
+     * @param {*} originalEffectName 
+     */
     "pearlescent_hand_protection": function (event, player, effectValue, itemstack, originalEffectName) {
-        let {entity, source, amount}= event
+        let {source, amount}= event
         if(source.getType() === "player") return
+        Client.tell(2)
         let effects = getAllEffects(itemstack);
         for(let effectName of effects){
             if(effectName.key == "criticalStrike"){
@@ -160,6 +155,69 @@ let lmTetraPlayerHurtStrategies = {
                 }
             }
         };
+    },
+    //覆盖幸运横扫
+    'lucky_sweep': function (event, player, effectValue, item, originalEffectName) {
+        // 检查冷却时间，避免循环触发
+        let time = player.persistentData.getInt(originalEffectName) ?? 0
+        let CD = Math.abs(player.age - time)
+        if (CD < 20) return
+        player.persistentData.putInt(originalEffectName, player.age)
+
+        // 武器上获取lucky_sweep效果等级
+        let luckyLevel = simpleGetTetraEffectLevel(item, 'lucky_sweep')
+
+        // 根据武器lucky_sweep来给予效果
+        player.potionEffects.add('minecraft:luck', 20 * 3, luckyLevel - 1)
+
+        // 获取玩家面板幸运
+        let luckValue = player.getAttributeTotalValue('pasterdream:luck') + player.getAttributeTotalValue('minecraft:generic.luck')
+
+        // 延迟1tick触发横扫效果
+        player.server.scheduleInTicks(1, () => {
+            // 横扫伤害算法：基础伤害的12.5% * 幸运等级*0.5
+            let baseDamage = player.getAttributeTotalValue('minecraft:generic.attack_damage')
+            let sweepDamage = Math.max(1, baseDamage * 0.5) * Math.max(1, luckValue * 1.75)
+            
+            if(event.source.getType() === "player") {
+                let pearlescentLevel = simpleGetTetraEffectLevel(item,"pearlescent_hand_protection")
+                if(pearlescentLevel) {
+                    let critLevel = simpleGetTetraEffectLevel(item,"criticalStrike")
+                    let critEfficiency = lmGetEffectEfficiency(item,"criticalStrike")
+                    if(critEfficiency < 1) return
+                    if(player.getRandom().nextDouble() < critLevel/100) {
+                        sweepDamage *= critEfficiency
+                    }
+                }
+            }
+
+            
+            // 横扫范围
+            let sweepRange = Math.max(1, luckValue * 0.75)
+
+            // 获取被攻击实体周围的所有生物实体
+            let targetEntity = event.entity
+            let entityList = getLivingWithinRadius(targetEntity.getLevel(), targetEntity.position(), sweepRange)
+
+            // 对范围内的实体造成横扫伤害（排除玩家自己）
+            entityList.forEach(entity => {
+                if (entity.isLiving() && entity != player) {
+                    let time = entity.invulnerableTime
+                    // 设置无敌时间为0，确保伤害能够造成
+                    entity.invulnerableTime = 0
+                    // 造成横扫伤害
+                    entity.attack(event.source, sweepDamage)
+                    entity.invulnerableTime = time
+                }
+            })
+
+            //横扫粒子效果
+            player.server.runCommandSilent(`execute at ${player.name.string} run particle minecraft:sweep_attack ~ ~1 ~ 0 0 0 0 1`)
+
+            //横扫音效
+            player.server.runCommandSilent(`execute at ${player.name.string} run playsound minecraft:entity.player.attack.sweep player @a ~ ~ ~ 1 1`)
+
+        })
     },
 }
 Object.assign(tetraPlayerAttackStrategies, lmTetraPlayerHurtStrategies);
