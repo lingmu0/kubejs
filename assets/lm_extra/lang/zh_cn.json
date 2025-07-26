@@ -76,6 +76,7 @@
     "tetra.variant_category.lm_extra.label": "剑刃改造",
 
 
-    "effect.lm_extra.luck": "强运"
+    "effect.lm_extra.luck": "强运",
+    "effect.lm_extra.luck.description": "每级提供10%幸运增加"
     
 }

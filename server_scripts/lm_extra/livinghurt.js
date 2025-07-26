@@ -192,6 +192,7 @@ let lmTetraPlayerHurtStrategies = {
             let baseDamage = player.getAttributeTotalValue('minecraft:generic.attack_damage')
             let sweepDamage = Math.max(1, baseDamage * 0.5) * Math.max(1, luckValue * 1.75)
             
+            //珠光护手暴击
             if(event.source.getType() === "player") {
                 let pearlescentLevel = simpleGetTetraEffectLevel(item,"pearlescent_hand_protection")
                 if(pearlescentLevel) {
