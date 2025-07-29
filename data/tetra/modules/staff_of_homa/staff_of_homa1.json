@@ -25,7 +25,7 @@
                 "generic.attack_speed": -1.9
             },
             "effects": {
-                "sweeping": 1,
+                "sweeping": 2,
                 "butterfly_of_zhuchi": [1, 1]
             },
             "tools": {
@@ -44,6 +44,12 @@
             "key": "staff_of_homa1/",
             "durability": 10000,
             "extract": {
+                "primaryAttributes": {
+                    "generic.attack_damage": 1
+                },
+                "durability": 0.9,
+                "integrity": -1,
+                "magicCapacity": 1,
                 "glyph": {
                     "textureX": 72,
                     "textureY": 112

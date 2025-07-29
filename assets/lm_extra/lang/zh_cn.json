@@ -13,6 +13,7 @@
     "item.lm_extra.dominate": "主宰",
     "item.lm_extra.pearlescent_hand_protection": "珠光护手",
     "item.lm_extra.sacred_sword": "神圣之剑",
+    "item.lm_extra.staff_of_homa": "§c护摩之杖",
 
     "tetra.material.black_silk.prefix": "黑丝", 
     "tetra.material.black_silk": "黑丝",
@@ -66,7 +67,22 @@
     "tetra.stats.gambling.tooltip_short": "攻击时40%%几率造成50%%伤害，60%%造成4倍伤害",
     "tetra.stats.wildly_arrogant": "狂妄",
     "tetra.stats.wildly_arrogant.tooltip_short": "对满血生物造成10倍伤害",
+    "tetra.stats.butterfly_of_zhuchi": "朱赤之蝶",
+    "tetra.stats.butterfly_of_zhuchi.tooltip_short": "右键释放战技",
 
+
+    "tetra.module.staff_of_homa/staff_of_homa1.material_name": "§c%s护摩头部",
+    "tetra.slot.staff_of_homa1": "护摩头部",
+    "tetra/schematic/staff_of_homa/staff_of_homa1.slot1": "护摩头部材料",
+    "tetra/schematic/staff_of_homa/staff_of_homa1.name": "§c护摩头部",
+    "tetra/schematic/staff_of_homa/staff_of_homa1.description": "根据材料硬度增加攻击力",
+    "tetra.module.staff_of_homa/staff_of_homa1.item_name": "§c护摩之杖",
+
+    "tetra.slot.staff_of_homa2": "附加",
+    "tetra.module.staff_of_homa/staff_of_homa2.material_name": "镶嵌[%s]",
+    "tetra/schematic/staff_of_homa/staff_of_homa2.slot1": "镶嵌材料",
+    "tetra/schematic/staff_of_homa/staff_of_homa2.name": "镶嵌",
+    "tetra/schematic/staff_of_homa/staff_of_homa2.description": "镶嵌宝石",
 
     "tetra.variant.sacred_sword_blade/sacred_sword": "§6神圣之剑",
     "tetra.module.sword/sacred_sword_blade.item_name": "§6神圣之剑",

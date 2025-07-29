@@ -184,7 +184,7 @@ let lmTetraPlayerHurtStrategies = {
         player.potionEffects.add('minecraft:luck', 20 * 3, luckyLevel - 1)
 
         // 获取玩家面板幸运
-        let luckValue = player.getAttributeTotalValue('pasterdream:luck') + player.getAttributeTotalValue('minecraft:generic.luck')
+        let luckValue = (player.getAttributeTotalValue('pasterdream:luck') + player.getAttributeTotalValue('minecraft:generic.luck')) * 0.5
 
         // 延迟1tick触发横扫效果
         player.server.scheduleInTicks(1, () => {

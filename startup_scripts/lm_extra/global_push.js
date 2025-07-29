@@ -11,6 +11,7 @@ const newLMMaterials = [
     { material: '', ftb_id: '', effect_name: 'wildly_arrogant' ,tags:[]},
     { material: '', ftb_id: '', effect_name: 'gambling' ,tags:[]},
     { material: '', ftb_id: '', effect_name: 'glory' ,tags:[]},
+    { material: '', ftb_id: '', effect_name: 'butterfly_of_zhuchi' ,tags:[]},
 ];
 newLMMaterials.forEach(material => {
     global.materials.push(material);
