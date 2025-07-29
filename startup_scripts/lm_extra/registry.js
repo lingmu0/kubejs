@@ -13,6 +13,26 @@ StartupEvents.registry('item', event => {
     event.create("lm_extra:dominate","basic")
     event.create("lm_extra:pearlescent_hand_protection","basic")
     event.create("lm_extra:sacred_sword","basic")
+    event.create("lm_extra:staff_of_homa","sword")
+        .attackDamageBaseline(10)
+        .speedBaseline(-2.4)
+        .rarity('epic')
+        .maxDamage(10000)
+        .maxStackSize(1)
+
+
+    event.createCustom('tetra:staff_of_homa', () =>
+        new Builder("staff_of_homa")
+            .honeBase(240)
+            .addMajorModuleKey('staff_of_homa1', 4, -4, true)
+            .addMajorModuleKey("sword/hilt", 4, 20, true)
+            .addMinorModuleKey("sword/guard", -14, -2)
+            .addMinorModuleKey("sword/fuller", -22, 12)
+            .addMinorModuleKey("sword/guard", -14, 26)
+            .setAttributeMode('tetra')
+            .setSlotType("mainhand")
+            .build()
+    );
 })
 
 StartupEvents.registry('sound_event', event => {
