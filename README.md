@@ -1,3 +1,4 @@
+- 使用方法:将此压缩包内的kubejs文件夹与游戏文件夹下的kubejs进行覆盖
 - git仓库:https://github.com/lingmu0/kubejs
 - 如下所提及普攻、平a特指近战攻击伤害，否则为任意伤害
 
