@@ -54,6 +54,15 @@ ServerEvents.recipes(event =>{
         'refinedstorage:quartz_enriched_iron'
     ]).superheated()
 
+    create.compacting('lm_extra:staff_of_homa',[
+        Fluid.of({fluid: 'minecraft:lava', amount: 1000}),
+        Fluid.of({fluid: 'netherexp:ectoplasm', amount: 1000}),
+        'cataclysm:netherite_effigy',
+        'minecraft:blaze_rod',
+        'jerotesvillage:piglin_golden_fire',
+        'lm_extra:polearm_billet'
+    ]).superheated()
+
     // 鬼索的狂暴碎片
     create.mechanical_crafting('lm_extra:rage_blade',
         [
