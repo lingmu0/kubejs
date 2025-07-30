@@ -169,6 +169,33 @@ let lmTetraPlayerHurtStrategies = {
             event.setAmount(amount * 10)
         }
     },
+    /**
+     * 朱赤之蝶
+     * @param {Internal.LivingAttackEvent} event 
+     * @param {Internal.Player} player 
+     * @param {*} effectValue 
+     * @param {*} item 
+     * @param {*} originalEffectName 
+     */
+    'butterfly_of_zhuchi': function (event, player, effectValue, item, originalEffectName) {
+        let {entity, amount} = event
+        if(event.source.getType() !== "player") return
+        // 蝶引来生
+        if (player.hasEffect('lm_extra:butterfly_rebirth')) {
+            
+            let fire_damage = player.getAttributeValue('attributeslib:fire_damage')
+            let attack_damage = Math.min(player.getAttributeValue('generic.attack_damage'), amount)
+            if(effectValue != 6) {
+                entity.invulnerableTime = 0
+                entity.attack(player.damageSources().source(createDamagetype('attributeslib',"fire_damage"), player), (attack_damage + fire_damage) * 3)
+                lmdrawSlashParticleLine(entity, 30, 0.1, 'minecraft:flame')
+            } else {
+                entity.invulnerableTime = 0
+                entity.attack(player.damageSources().source(createDamagetype('attributeslib',"fire_damage"), player), (attack_damage + fire_damage) * 6)
+                lmdrawSlashParticleLine(entity, 30, 0.1, 'minecraft:soul_fire_flame')
+            }
+        }
+    },
     //覆盖幸运横扫
     'lucky_sweep': function (event, player, effectValue, item, originalEffectName) {
         // 检查冷却时间，避免循环触发

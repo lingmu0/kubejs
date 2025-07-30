@@ -15,7 +15,7 @@
     "outcomes": [
         {
             "materials": ["tetra:lm_extra/sacred_sword"],
-            "countFactor": 2,
+            "countFactor": 1,
             "moduleKey": "sword/sacred_sword_blade",
             "moduleVariant": "sacred_sword_blade/"
         }

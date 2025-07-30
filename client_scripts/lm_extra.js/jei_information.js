@@ -13,4 +13,8 @@ JEIEvents.information(event =>{
     event.addItem('lm_extra:dominate', Text.black("(灾变之心强化) 根据最大生命值与临时生命值提供增伤，超过20点的部分每点提升4%伤害"));
     event.addItem('lm_extra:gambling', Text.black("(镶嵌材料) 攻击时40%几率造成50%伤害，60%几率造成4倍伤害"));
     event.addItem('lm_extra:wildly_arrogant', Text.black("(镶嵌材料) 对满血生物造成10倍伤害"));
+
+    event.addItem('lm_extra:staff_of_homa', Text.black({ "translate": "information.lm_extra.staff_of_homa" }));
+    event.addItem('tetra:staff_of_homa', Text.black({ "translate": "information.lm_extra.staff_of_homa" }));
+
 })

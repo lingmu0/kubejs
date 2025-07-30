@@ -16,7 +16,6 @@ StartupEvents.registry('item', event => {
     event.create("lm_extra:staff_of_homa","sword")
         .attackDamageBaseline(10)
         .speedBaseline(-2.4)
-        .rarity('epic')
         .maxDamage(10000)
         .maxStackSize(1)
 
@@ -45,4 +44,8 @@ StartupEvents.registry('mob_effect', event => {
     event.create("lm_extra:luck").beneficial().color(Color.GREEN)
         .modifyAttribute("minecraft:generic.luck","lm_extra_minecraft_luck",0.1, "multiply_total")
         .modifyAttribute("pasterdream:luck","lm_extra_pasterdream_luck",0.1, "multiply_total")
+        
+    
+    event.create("lm_extra:butterfly_rebirth").beneficial().color(Color.RED)
+        .modifyAttribute("generic.attack_damage","rebirth_attack_damage",0.1, "multiply_total")
 })

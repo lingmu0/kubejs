@@ -22,10 +22,11 @@
             ],
             "attributes": {
                 "generic.attack_damage": 12,
-                "generic.attack_speed": -1.9
+                "generic.attack_speed": -1.9,
+                "forge:entity_reach": 1
             },
             "effects": {
-                "sweeping": 2,
+                "sweeping": [2, 1],
                 "butterfly_of_zhuchi": [1, 1]
             },
             "tools": {
