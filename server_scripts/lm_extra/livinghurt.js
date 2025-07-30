@@ -189,10 +189,12 @@ let lmTetraPlayerHurtStrategies = {
                 entity.invulnerableTime = 0
                 entity.attack(player.damageSources().source(createDamagetype('attributeslib',"fire_damage"), player), (attack_damage + fire_damage) * 3)
                 lmdrawSlashParticleLine(entity, 30, 0.1, 'minecraft:flame')
+                lmdrawSingleRandomSlashLineWithOffset(entity, 'minecraft:flame', 0 , player)
             } else {
                 entity.invulnerableTime = 0
                 entity.attack(player.damageSources().source(createDamagetype('attributeslib',"fire_damage"), player), (attack_damage + fire_damage) * 6)
                 lmdrawSlashParticleLine(entity, 30, 0.1, 'minecraft:soul_fire_flame')
+                lmdrawSingleRandomSlashLineWithOffset(entity, 'minecraft:soul_fire_flame', 0 , player)
             }
         }
     },
