@@ -2,7 +2,8 @@
 let $LMDamageTypes = Java.loadClass('net.minecraft.world.damagesource.DamageTypes')
 let $LMResourceKey = Java.loadClass('net.minecraft.resources.ResourceKey');
 let $LMRegistries = Java.loadClass('net.minecraft.core.registries.Registries')
-let $lMCriticalHitEvent = Java.loadClass('net.minecraftforge.event.entity.player.CriticalHitEvent')
+let $LMCriticalHitEvent = Java.loadClass('net.minecraftforge.event.entity.player.CriticalHitEvent')
+let $LMFlame_Strike_Entity = Java.loadClass('com.github.L_Ender.cataclysm.entity.effect.Flame_Strike_Entity')
 
 /**
  * 创建伤害类型

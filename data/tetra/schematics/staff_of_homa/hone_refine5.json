@@ -12,12 +12,30 @@
         "textureY": 240
     },
     "requirement": {
-        "type": "tetra:improvement",
-        "improvement": "staff_of_homa/hone_refine",
-        "level": 4
+        "type": "tetra:and",
+        "requirements": [
+            {
+                "type": "tetra:improvement",
+                "improvement": "staff_of_homa/hone_refine",
+                "level": 4
+            },
+            {
+                "type":"mr:dimension",
+                "dimension":"the_nether"
+            },
+            {
+                "type":"mr:height",
+                "min":192
+            },
+            {
+                "type":"mr:potion",
+                "effect":"minecraft:fire_resistance"
+            }
+        ]
     },
     "outcomes": [
         {
+            "experienceCost": 30,
             "material": {
                 "items": [
                     "lm_extra:staff_of_homa",
