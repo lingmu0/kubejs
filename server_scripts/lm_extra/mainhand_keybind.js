@@ -44,10 +44,10 @@ let lmtetraPlayerkeybindStrategies = {
         // 在玩家周围生成旋转一圈的火焰粒子动画（从玩家面向方向开始）
         let level = player.getLevel();
         let radius = 6;
-        let particleCountPerFrame = 12; // 每帧生成的水平粒子数量（控制密度）
+        let particleCountPerFrame = 10; // 每帧生成的水平粒子数量（控制密度）
         let verticalLayers = 5; // 垂直层数
         let layerSpacing = 0.5; // 层间距
-        let totalFrames = 10; // 旋转一圈的总帧数（数值越小旋转越快）
+        let totalFrames = 12; // 旋转一圈的总帧数（数值越小旋转越快）
         let anglePerFrame = (2 * JavaMath.PI) / totalFrames; // 每帧递增的角度（弧度）
 
         // 获取玩家面向的初始角度（关键修改）
@@ -77,8 +77,7 @@ let lmtetraPlayerkeybindStrategies = {
                     let x = player.x + radius * Math.cos(angle);
                     let z = player.z + radius * Math.sin(angle);
 
-                    // 生成火焰粒子（保留轻微向上速度）
-                    level.runCommandSilent(`/particle ${particle} ${x} ${y} ${z} 0 0.1 0 0 1 force`);
+                    level.runCommandSilent(`/particle ${particle} ${x} ${y} ${z} 0 0 0 1 1 force`);
                 }
             }
 
