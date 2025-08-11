@@ -14,6 +14,7 @@ StartupEvents.registry('item', event => {
     event.create("lm_extra:pearlescent_hand_protection","basic")
     event.create("lm_extra:sacred_sword","basic")
     event.create("lm_extra:polearm_billet", "basic")
+    event.create("lm_extra:final_metal_ingot", "basic")
 
     event.create("lm_extra:staff_of_homa","sword")
         .attackDamageBaseline(10)
